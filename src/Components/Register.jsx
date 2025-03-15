@@ -21,6 +21,13 @@ const Register = ({funcSetLogin}) => {
     const handleProfileModalClose = () =>{
       setProfileModal(prev => !prev);
     }
+
+    const handleOnChange= (event,key) =>{
+      setInputFields({
+        ...inputField,[key]:event.target.value
+      })
+    }
+
   return (
     <div className='login'>
 
@@ -33,9 +40,9 @@ const Register = ({funcSetLogin}) => {
           </div>
 
           <div className='login-form'>
-            <input className='inputBox' type='text'placeholder='Enter 10 Digit Mobile number' />
-            <input className='inputBox' type='text'placeholder='Enter Password'/>
-            <input className='inputBox' type='text'placeholder='Enter Full Name' />
+            <input className='inputBox' type='text' value={inputField.mobileNumber} onChange={(event) => handleOnChange(event,"mobileNumber")} placeholder='Enter 10 Digit Mobile number' />
+            <input className='inputBox' type='text' value={inputField.password} onChange={(event) => handleOnChange(event,"password")} placeholder='Enter Password'/>
+            <input className='inputBox' type='text' value={inputField.name} onChange={(event) => handleOnChange(event,"name")} placeholder='Enter Full Name' />
 
             <div className='imageFile'>
               <div className='select-profile-btn' onClick={handleProfileModalClose}>Select Profile Image</div>

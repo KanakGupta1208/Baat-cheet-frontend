@@ -1,9 +1,12 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './Chats.css';
 import SentimentVerySatisfiedRoundedIcon from '@mui/icons-material/SentimentVerySatisfiedRounded';
 import SendRoundedIcon from '@mui/icons-material/SendRounded';
 
 const Chats = () => {
+
+    const[content, setContent] = useState("");
+
     return (
         <div className='dashboard-chats'>
             <div className='chatNameBlock'>
@@ -43,7 +46,7 @@ const Chats = () => {
 
             <div className='message-box'>
                 <div className='message-input-box'>
-                    <input placeholder='Type your Message Here' className='searchBox messageBox' />
+                    <input  value={content} onChange={(event) =>(event)=>{setContent(event.target.value)}} placeholder='Type your Message Here' className='searchBox messageBox' />
                 </div>
                 <div><SendRoundedIcon sx={{"fontSize":"32px", margin:"10px", cursor:"pointer"}}/></div>
             </div>
